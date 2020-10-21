@@ -1,6 +1,3 @@
-# This workflow will build a Java project with Maven
-# For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
-
 name: Auth serve CI
 
 on:
@@ -37,16 +34,6 @@ jobs:
           --health-retries 5
         ports:
           - 5432:5432
-#
-#      config-server:
-#        image: henryodinaka/config-server
-#        options: >-
-#          --health-cmd "echo 'Ok'"
-#          --health-interval 10s
-#          --health-timeout 5s
-#          --health-retries 5
-#        ports:
-#          - 50000:50000
 
     steps:
     - uses: actions/checkout@v2
