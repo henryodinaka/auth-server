@@ -32,10 +32,10 @@ jobs:
         run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build Container image
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/service:auth-serve .
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/service:auth-service .
 
       - name: Publish Docker image
-        run: docker push ${{ secrets.DOCKER_USERNAME }}/service:auth-serve
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/service:auth-service
 
       - name: pull difintion file
         run: curl -o auth-service.yml https://1fd8c0ce5eaea18fac2f3551890548070f061bf3@raw.githubusercontent.com/henryodinakamin/ConfigStore/master/k8s-manifests/deployments/auth-service.yml
