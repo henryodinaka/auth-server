@@ -44,8 +44,8 @@ public class SwaggerConfig {
 
     private ApiInfo getApiInfo(){
         return new ApiInfoBuilder()
-                .title("Payment and Wallet API")
-                .description("This is a micro service for wallet management ")
+                .title("MIN auth Server")
+                .description("This is a micro service for token store and generation ")
                 .version("1.0.0")
                 .build();
     }

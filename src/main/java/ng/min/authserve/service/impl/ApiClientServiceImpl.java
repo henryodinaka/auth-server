@@ -58,7 +58,7 @@ public class ApiClientServiceImpl implements ApiClientService {
 
     public ResponseEntity<Response> createService(boolean isUpdate, ServiceRequest userRequest) throws MinServiceException {
 
-        var apiKey = generateApiKey();
+        var apiKey = "";
         try {
             ServiceClient admin = getUser();
 
@@ -87,6 +87,7 @@ public class ApiClientServiceImpl implements ApiClientService {
                 if (count > 0) {
                     return Response.setUpResponse(ResponseCode.DUPLICATE_REQUEST, "Service name ");
                 }
+                apiKey = generateApiKey();
                 serviceClient.setApiKey(passwordEncoder.encode(apiKey));
                 var clientId = "";
                 if (userRequest.isNotUser()) clientId = generateClientId();

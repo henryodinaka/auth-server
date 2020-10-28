@@ -2,9 +2,9 @@ name: Auth serve CI
 
 on:
   push:
-    branches: [ development ]
+    branches: [ developmen ]
   pull_request:
-    branches: [ development ]
+    branches: [ developmen ]
 
 jobs:
   build:
