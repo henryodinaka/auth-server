@@ -86,7 +86,7 @@ public class AES {
         return null;
     }
 
-    public static String decrypt(String strToDecrypt) {
+    public static String decrypt(String strToDecrypt) throws MinServiceException {
         try {
             if (!Validation.validData(strToDecrypt))
                 throw new MinServiceException(ResponseCode.BAD_REQUEST.getCode(), ResponseCode.BAD_REQUEST.getValue().replace("{}", "Access token cannot be null. Pass it as header: " + CommonConstant.HEADER_STRING), ResponseCode.BAD_REQUEST.getStatusCode());
@@ -97,7 +97,11 @@ public class AES {
             cipher.init(Cipher.DECRYPT_MODE, secretKey);
             return new String(cipher.doFinal(Base64.decodeBase64(strToDecrypt)));
 
-        } catch (Exception e) {
+        } catch (IllegalArgumentException e) {
+
+            log.error("IllegalArgumentException Error while decrypting JWT token: ", e);
+            throw new MinServiceException(ResponseCode.BAD_REQUEST.getCode(),"Invalid token sent. Ensure you passed a valid token ",ResponseCode.BAD_REQUEST.getStatusCode());
+        }catch (Exception e) {
 
             log.error("Error while decrypting: ", e);
         }

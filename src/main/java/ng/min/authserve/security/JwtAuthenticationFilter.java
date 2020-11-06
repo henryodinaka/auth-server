@@ -1,5 +1,7 @@
 package ng.min.authserve.security;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import execeptioins.MinServiceException;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.MalformedJwtException;
 import io.jsonwebtoken.SignatureException;
@@ -9,6 +11,8 @@ import ng.min.authserve.model.ProfileDetailsService;
 import ng.min.authserve.model.TokenProvider;
 import ng.min.authserve.utils.AES;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -44,7 +48,15 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             if (authTokenArray.length == 2) {
 
                 var authTokenEncrypted = authTokenArray[1]; /*Decrypt token*/
-                authToken = AES.decrypt(authTokenEncrypted);
+                try {
+                    authToken = AES.decrypt(authTokenEncrypted);
+                } catch (MinServiceException e) {
+                    res.resetBuffer();
+                    res.setStatus(e.getHttpCode());
+                    res.setHeader(HttpHeaders.CONTENT_TYPE, "application/json");
+                    res.getOutputStream().print(new ObjectMapper().writeValueAsString(e.getMessage()));
+                    res.flushBuffer();
+                }
 //                log.info("Decrypted token {}",authToken);
                 try {
                     if (header.startsWith(CommonConstant.TOKEN_PREFIX))
