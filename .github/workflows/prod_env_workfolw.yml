@@ -21,19 +21,19 @@ jobs:
 
       - name: Publish Docker image
         run: docker push ${{ secrets.DOCKER_USERNAME }}/service:mkt-auth-service
-
-      - name: pull difintion file
-        run: curl -o auth-service.yml https://1fd8c0ce5eaea18fac2f3551890548070f061bf3@raw.githubusercontent.com/henryodinakamin/ConfigStore/master/k8s-market/deployments/auth-service.yml
-
-      - name: Build number
-        run: sed -ie "s/THIS_STRING_IS_REPLACED_DURING_BUILD/$(date)/g" auth-service.yml
-
-      - name: kubectl - apply changes on deploymet on GKE cluster.
-        uses: ameydev/gke-kubectl-action@master
-        env:
-          PROJECT_ID: ${{ secrets.PROJECT_ID }}
-          APPLICATION_CREDENTIALS: ${{ secrets.GKE_KEY }}
-          CLUSTER_NAME: min-portal-cluster
-          ZONE_NAME: europe-west1-c
-        with:
-          args: apply -f auth-service.yml
+#
+#      - name: pull difintion file
+#        run: curl -o auth-service.yml https://1fd8c0ce5eaea18fac2f3551890548070f061bf3@raw.githubusercontent.com/henryodinakamin/ConfigStore/master/k8s-market/deployments/auth-service.yml
+#
+#      - name: Build number
+#        run: sed -ie "s/THIS_STRING_IS_REPLACED_DURING_BUILD/$(date)/g" auth-service.yml
+#
+#      - name: kubectl - apply changes on deploymet on GKE cluster.
+#        uses: ameydev/gke-kubectl-action@master
+#        env:
+#          PROJECT_ID: ${{ secrets.PROJECT_ID }}
+#          APPLICATION_CREDENTIALS: ${{ secrets.GKE_KEY }}
+#          CLUSTER_NAME: min-portal-cluster
+#          ZONE_NAME: europe-west1-c
+#        with:
+#          args: apply -f auth-service.yml
