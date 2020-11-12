@@ -1,4 +1,4 @@
-package ng.min.authserve.model;
+package ng.min.authserve.security;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

@@ -1,6 +1,6 @@
 package ng.min.authserve.security;
 
-import execeptioins.MinServiceException;
+import ng.min.authserve.execeptioins.MinServiceException;
 import lombok.extern.slf4j.Slf4j;
 import ng.min.authserve.constants.PermissionType;
 import ng.min.authserve.dto.NotificationData;

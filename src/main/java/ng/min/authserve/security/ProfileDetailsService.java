@@ -1,6 +1,8 @@
-package ng.min.authserve.model;
+package ng.min.authserve.security;
 
 import lombok.extern.slf4j.Slf4j;
+import ng.min.authserve.model.PermissionRole;
+import ng.min.authserve.model.ServiceClient;
 import ng.min.authserve.repo.ApiClientRepo;
 import ng.min.authserve.repo.PermissionRoleRepo;
 import org.springframework.beans.factory.annotation.Autowired;

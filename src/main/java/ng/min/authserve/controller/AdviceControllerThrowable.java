@@ -1,7 +1,7 @@
 package ng.min.authserve.controller;
 
 import com.fasterxml.jackson.core.JsonParseException;
-import execeptioins.MinServiceException;
+import ng.min.authserve.execeptioins.MinServiceException;
 import io.jsonwebtoken.ExpiredJwtException;
 import lombok.extern.slf4j.Slf4j;
 import ng.min.authserve.constants.ResponseCode;

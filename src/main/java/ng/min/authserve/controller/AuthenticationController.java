@@ -1,6 +1,7 @@
 package ng.min.authserve.controller;
 
-import execeptioins.MinServiceException;
+import ng.min.authserve.execeptioins.MinServiceException;
+import lombok.extern.slf4j.Slf4j;
 import ng.min.authserve.constants.CommonConstant;
 import ng.min.authserve.constants.ResponseCode;
 import ng.min.authserve.dto.Response;
@@ -18,6 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 @CrossOrigin(origins = "*", maxAge = 3600,methods = {RequestMethod.GET,RequestMethod.PATCH,RequestMethod.POST,RequestMethod.PATCH,RequestMethod.PUT})
 @RestController
 @RequestMapping(CommonConstant.API_VERSION + "token")
+@Slf4j
 public class AuthenticationController {
 
     @Autowired
@@ -27,6 +29,7 @@ public class AuthenticationController {
     public ResponseEntity<Response> getToken(HttpServletRequest servletRequest) throws MinServiceException {
         var clientId = servletRequest.getHeader(CommonConstant.HEADER_STRING_CLIENT_ID);
         var apiKey = servletRequest.getHeader(CommonConstant.HEADER_STRING_KEY);
+        log.info("controller The caller details clientId {} ::: apikey {}",clientId,apiKey);
         if (!Validation.validData(clientId))
             return Response.setUpResponse(ResponseCode.ACCESS_DENIED, "client Id is required :key ClientId");
         if (!Validation.validData(apiKey))

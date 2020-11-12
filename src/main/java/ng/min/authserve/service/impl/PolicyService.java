@@ -1,11 +1,10 @@
 package ng.min.authserve.service.impl;
 
-import execeptioins.MinServiceException;
+import ng.min.authserve.execeptioins.MinServiceException;
 import lombok.extern.slf4j.Slf4j;
 import ng.min.authserve.constants.ResponseCode;
 import ng.min.authserve.dto.RequestUtil;
 import ng.min.authserve.dto.Response;
-import ng.min.authserve.dto.RoleDto;
 import ng.min.authserve.model.Permission;
 import ng.min.authserve.model.PermissionRole;
 import ng.min.authserve.model.Role;
@@ -17,13 +16,9 @@ import ng.min.authserve.repo.RoleRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-import java.security.NoSuchAlgorithmException;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 

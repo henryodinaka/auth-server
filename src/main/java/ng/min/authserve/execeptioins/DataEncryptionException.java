@@ -1,4 +1,4 @@
-package execeptioins;
+package ng.min.authserve.execeptioins;
 
 /**
  * Created by Unogwu Daniel on 13/07/2020.

@@ -1,4 +1,4 @@
-package execeptioins;
+package ng.min.authserve.execeptioins;
 
 import lombok.Data;
 

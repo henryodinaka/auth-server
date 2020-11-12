@@ -1,18 +1,15 @@
 package ng.min.authserve.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import execeptioins.MinServiceException;
+import ng.min.authserve.execeptioins.MinServiceException;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.MalformedJwtException;
 import io.jsonwebtoken.SignatureException;
 import lombok.extern.slf4j.Slf4j;
 import ng.min.authserve.constants.CommonConstant;
-import ng.min.authserve.model.ProfileDetailsService;
-import ng.min.authserve.model.TokenProvider;
 import ng.min.authserve.utils.AES;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -60,7 +57,9 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 //                log.info("Decrypted token {}",authToken);
                 try {
                     if (header.startsWith(CommonConstant.TOKEN_PREFIX))
+                    {
                         username = jwtTokenUtil.getUsernameFromToken(authToken);
+                    }
                 } catch (IllegalArgumentException e) {
                     logger.error("an error occurred during getting username fromUser token", e);
                 } catch (ExpiredJwtException e) {

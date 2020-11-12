@@ -4,7 +4,7 @@
  */
 package ng.min.authserve.utils;
 
-import execeptioins.DataEncryptionException;
+import ng.min.authserve.execeptioins.DataEncryptionException;
 import ng.min.authserve.security.EncryptionKey;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;

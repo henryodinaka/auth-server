@@ -1,7 +1,7 @@
 package ng.min.authserve.controller;
 
 
-import execeptioins.MinServiceException;
+import ng.min.authserve.execeptioins.MinServiceException;
 import ng.min.authserve.constants.CommonConstant;
 import ng.min.authserve.service.impl.PolicyService;
 import org.springframework.beans.factory.annotation.Autowired;

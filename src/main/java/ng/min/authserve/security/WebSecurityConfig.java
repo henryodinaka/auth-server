@@ -1,4 +1,4 @@
-package ng.min.authserve.model;
+package ng.min.authserve.security;
 
 import ng.min.authserve.security.JwtAuthenticationEntryPoint;
 import ng.min.authserve.security.JwtAuthenticationFilter;

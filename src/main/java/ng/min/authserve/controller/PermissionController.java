@@ -1,11 +1,10 @@
 package ng.min.authserve.controller;
 
 
-import execeptioins.MinServiceException;
+import ng.min.authserve.execeptioins.MinServiceException;
 import ng.min.authserve.constants.CommonConstant;
 import ng.min.authserve.model.Permission;
 import ng.min.authserve.service.impl.PermissionService;
-import ng.min.authserve.service.impl.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;

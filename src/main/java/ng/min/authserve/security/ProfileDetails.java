@@ -1,6 +1,9 @@
-package ng.min.authserve.model;
+package ng.min.authserve.security;
 
 import lombok.extern.slf4j.Slf4j;
+import ng.min.authserve.model.Permission;
+import ng.min.authserve.model.PermissionRole;
+import ng.min.authserve.model.ServiceClient;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

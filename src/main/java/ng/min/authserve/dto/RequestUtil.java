@@ -1,6 +1,6 @@
 package ng.min.authserve.dto;
 
-import ng.min.authserve.model.ProfileDetails;
+import ng.min.authserve.security.ProfileDetails;
 import ng.min.authserve.model.ServiceClient;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;

@@ -1,7 +1,7 @@
 package ng.min.authserve.service;
 
 
-import execeptioins.MinServiceException;
+import ng.min.authserve.execeptioins.MinServiceException;
 import ng.min.authserve.dto.Response;
 import ng.min.authserve.dto.ServiceRequest;
 import org.springframework.http.ResponseEntity;
